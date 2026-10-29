@@ -27,9 +27,30 @@ a:focus-visible {
     outline-offset: 4px;
 }
 
+/* Rubriker. */
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    overflow-wrap: break-word;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
 /* Sidhuvud och navigation. */
 header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
@@ -55,51 +76,160 @@ nav a[aria-current="page"] {
     text-decoration: underline;
 }
 
-/* Innehåll och rubriker. */
-main section {
+/* Gemensamma avstånd för huvudsektionerna. */
+main > section {
     padding: 40px 24px;
 }
 
-h1,
-h2,
-h3 {
-    line-height: 1.2;
+.eyebrow {
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
-h1 {
-    font-size: 2.5rem;
+/* Länkar som utformas som knappar. */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    color: #ffffff;
+    background-color: #193443;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-h2 {
-    font-size: 2rem;
+.button:hover {
+    background-color: #2c5060;
 }
 
-article {
-    margin-top: 32px;
-}
-
-/* Introduktion och presentation av verksamheten. */
-section[aria-labelledby="intro-heading"] {
+/* Introduktion på startsidan. */
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 32px;
     background-color: #f1f4f3;
 }
 
-section[aria-labelledby="about-heading"],
-footer {
+.hero-content h1 {
+    margin: 16px 0;
+}
+
+.hero-content .button {
+    margin-top: 16px;
+}
+
+.hero-image {
+    width: 100%;
+}
+
+/* Kategorikort på startsidan. */
+.category-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    margin-top: 32px;
+}
+
+.category-grid article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.category-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.category-grid h3 {
+    margin: 20px 0 8px;
+}
+
+.category-grid p {
+    margin: 0 0 24px;
+}
+
+.category-grid .button {
+    margin-top: auto;
+}
+
+/* Presentation av verksamheten. */
+.about {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
     color: #ffffff;
     background-color: #193443;
 }
 
-footer {
-    padding: 32px 24px;
+.about h2 {
+    margin-top: 12px;
 }
 
-/* Mer utrymme på större skärmar. */
+.about .button {
+    margin-top: 16px;
+    color: #193443;
+    background-color: #dbf47b;
+}
+
+.about .button:hover {
+    background-color: #c9e568;
+}
+
+/* Sidfot och fokusmarkering på mörk bakgrund. */
+footer {
+    padding: 32px 24px;
+    color: #ffffff;
+    background-color: #193443;
+}
+
+.about a:focus-visible,
+footer a:focus-visible {
+    outline-color: #dbf47b;
+}
+
+/* Introduktion till kollektionssidan. */
+.page-intro {
+    background-color: #f1f4f3;
+}
+
+.category-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 0;
+    list-style: none;
+}
+
+/* Kategorier på kollektionssidan. */
+.collection-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 32px;
+    scroll-margin-top: 24px;
+}
+
+.collection-section img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.collection-section:nth-of-type(odd) {
+    background-color: #f1f4f3;
+}
+
+/* Större avstånd på surfplattor och desktop. */
 @media (min-width: 768px) {
     header {
         padding: 32px 64px;
     }
 
-    main section {
+    main > section {
         padding: 64px;
     }
 
@@ -109,5 +239,19 @@ footer {
 
     footer {
         padding: 40px 64px;
+    }
+}
+
+/* Flera kolumner på desktop. */
+@media (min-width: 900px) {
+    .hero,
+    .about,
+    .collection-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 48px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
