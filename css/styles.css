@@ -255,3 +255,73 @@ footer a:focus-visible {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
+
+/* Kontaktformulär. */
+#contact-form {
+    max-width: 640px;
+    margin-top: 32px;
+}
+
+.form-field {
+    margin-bottom: 24px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-field input,
+.form-field textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #56676d;
+    border-radius: 4px;
+    font: inherit;
+    color: #193443;
+    background-color: #ffffff;
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
+.form-field input:focus-visible,
+.form-field textarea:focus-visible {
+    outline: 3px solid #193443;
+    outline-offset: 3px;
+}
+
+/* Fel visas både med text och en markerad kant. */
+.form-field [aria-invalid="true"] {
+    border: 2px solid #a51d26;
+}
+
+.field-error {
+    margin: 8px 0 0;
+    color: #a51d26;
+    font-weight: bold;
+}
+
+.field-error:empty {
+    display: none;
+}
+
+button.button {
+    border: none;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.button:focus-visible {
+    outline: 3px solid #193443;
+    outline-offset: 4px;
+}
+
+#form-status {
+    margin-top: 24px;
+    font-weight: bold;
+}
