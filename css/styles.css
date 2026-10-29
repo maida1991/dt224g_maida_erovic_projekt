@@ -1,0 +1,113 @@
+/* Grundinställningar för hela webbplatsen. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #193443;
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Bilder anpassas till tillgängligt utrymme. */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+}
+
+a:focus-visible {
+    outline: 3px solid #193443;
+    outline-offset: 4px;
+}
+
+/* Sidhuvud och navigation. */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+    text-decoration: underline;
+}
+
+/* Innehåll och rubriker. */
+main section {
+    padding: 40px 24px;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+article {
+    margin-top: 32px;
+}
+
+/* Introduktion och presentation av verksamheten. */
+section[aria-labelledby="intro-heading"] {
+    background-color: #f1f4f3;
+}
+
+section[aria-labelledby="about-heading"],
+footer {
+    color: #ffffff;
+    background-color: #193443;
+}
+
+footer {
+    padding: 32px 24px;
+}
+
+/* Mer utrymme på större skärmar. */
+@media (min-width: 768px) {
+    header {
+        padding: 32px 64px;
+    }
+
+    main section {
+        padding: 64px;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    footer {
+        padding: 40px 64px;
+    }
+}
