@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Kontakta Miixi om sportkläder, kollektionen eller kläder för ditt lag.">
+    <title>Kontakt | Miixi</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <!-- Gemensamt sidhuvud och navigation. -->
+    <header>
+        <a href="index.html" aria-label="Miixi – startsida">
+            <img src="images/miixi-logo.svg"
+                alt="Miixi"
+                width="150"
+                height="33">
+        </a>
+
+        <nav aria-label="Huvudnavigation">
+            <ul>
+                <li><a href="index.html">Hem</a></li>
+                <li><a href="kollektion.html">Kollektion</a></li>
+                <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-intro" aria-labelledby="contact-heading">
+            <p class="eyebrow">Miixi / Kontakt</p>
+            <h1 id="contact-heading">Vi hörs!</h1>
+            <p>
+                Har du frågor om kollektionen eller kläder för ditt lag?
+                Fyll i formuläret nedan.
+            </p>
+            <p>
+                För aktuella kontaktuppgifter och kundservice,
+                besök <a href="https://miixi.se/">miixi.se</a>.
+            </p>
+        </section>
+
+        <section aria-labelledby="form-heading">
+            <h2 id="form-heading">Kontaktformulär</h2>
+            <p id="form-info">
+                Alla fält är obligatoriska. Detta är ett demonstrationsformulär
+                i ett studentprojekt. Inga meddelanden skickas.
+            </p>
+
+            <!-- JavaScript aktiverar egen validering när skriptet laddats. -->
+            <form id="contact-form" aria-describedby="form-info">
+                <div class="form-field">
+                    <label for="name">Namn</label>
+                    <input type="text"
+                        id="name"
+                        name="name"
+                        autocomplete="name"
+                        aria-describedby="name-error"
+                        required>
+                    <p class="field-error" id="name-error"></p>
+                </div>
+
+                <div class="form-field">
+                    <label for="email">E-postadress</label>
+                    <input type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        aria-describedby="email-error"
+                        required>
+                    <p class="field-error" id="email-error"></p>
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Meddelande</label>
+                    <textarea id="message"
+                        name="message"
+                        rows="6"
+                        aria-describedby="message-error"
+                        required></textarea>
+                    <p class="field-error" id="message-error"></p>
+                </div>
+
+                <button class="button" type="submit">
+                    Kontrollera formuläret
+                </button>
+
+                <p id="form-status" role="status"></p>
+            </form>
+
+            <noscript>
+                <p>Aktivera JavaScript för att använda demonstrationsformuläret.</p>
+            </noscript>
+        </section>
+    </main>
+
+    <footer>
+        <p>Miixi – Sport &amp; rörelse</p>
+        <a href="kontakt.html">Kontakta oss</a>
+        <p>Studentprojekt i kursen DT224G av Maida Erovic.</p>
+    </footer>
+</body>
+
+</html>
