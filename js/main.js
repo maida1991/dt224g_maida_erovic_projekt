@@ -86,3 +86,58 @@ if (contactForm) {
             "så inget meddelande har skickats.";
     });
 }
+
+// Hämta mobilmenyns knapp och navigation.
+const menuButton = document.querySelector(".menu-toggle");
+const siteNav = document.querySelector("#site-nav");
+
+if (menuButton && siteNav) {
+    const mobileScreen = window.matchMedia("(max-width: 767px)");
+    const menuIcon = menuButton.querySelector(".menu-icon");
+    const menuLabel = menuButton.querySelector(".menu-label");
+
+    // Uppdatera synlighet, knapptext och tillgänglighetsinformation.
+    function setMenuOpen(isOpen) {
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuIcon.textContent = isOpen ? "✕" : "☰";
+        menuLabel.textContent = isOpen ? "Stäng meny" : "Öppna meny";
+
+        // På desktop är navigationen alltid synlig.
+        siteNav.hidden = mobileScreen.matches && !isOpen;
+    }
+
+    // Anpassa menyn när skärmens storlek ändras.
+    function updateMenuLayout() {
+        const focusWasInNav = siteNav.contains(document.activeElement);
+        const focusWasOnButton = document.activeElement === menuButton;
+
+        menuButton.hidden = !mobileScreen.matches;
+        setMenuOpen(false);
+
+        if (mobileScreen.matches && focusWasInNav) {
+            menuButton.focus();
+        } else if (!mobileScreen.matches && focusWasOnButton) {
+            siteNav.querySelector("a").focus();
+        }
+    }
+
+    menuButton.addEventListener("click", function () {
+        const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+        setMenuOpen(!isOpen);
+    });
+
+    // Escape stänger menyn och flyttar fokus tillbaka till knappen.
+    document.addEventListener("keydown", function (event) {
+        const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+
+        if (event.key === "Escape" && mobileScreen.matches && isOpen) {
+            setMenuOpen(false);
+            menuButton.focus();
+        }
+    });
+
+    mobileScreen.addEventListener("change", updateMenuLayout);
+
+    // Aktivera rätt meny vid första sidladdningen.
+    updateMenuLayout();
+}

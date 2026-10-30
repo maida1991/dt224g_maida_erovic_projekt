@@ -325,3 +325,65 @@ button.button:focus-visible {
     margin-top: 24px;
     font-weight: bold;
 }
+
+/* Mobilmenyn aktiveras med JavaScript. */
+.menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid #193443;
+    border-radius: 4px;
+    color: #193443;
+    background-color: #ffffff;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.menu-toggle:focus-visible {
+    outline: 3px solid #193443;
+    outline-offset: 4px;
+}
+
+/* Dolda kontroller och länkar ska inte visas eller kunna få fokus. */
+.menu-toggle[hidden],
+#site-nav[hidden] {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .menu-toggle:not([hidden]) {
+        display: inline-flex;
+    }
+
+    #site-nav {
+        flex-basis: 100%;
+    }
+
+    #site-nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #site-nav a {
+        display: block;
+        padding: 12px 0;
+    }
+}
+
+/* Verksamhetens kontaktuppgifter. */
+.contact-details {
+    margin-top: 24px;
+    font-style: normal;
+}
+
+.contact-details p {
+    margin: 8px 0;
+}
