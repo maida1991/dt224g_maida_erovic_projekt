@@ -4,19 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Upptäck sportkläder för träning, lag och en aktiv vardag hos Miixi.">
+    <meta name="description"
+        content="Upptäck sportkläder för träning, lag och en aktiv vardag hos Miixi.">
     <title>Miixi | Sportkläder</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
-    <!-- Sidhuvud med navigation till webbplatsens tre sidor. -->
+    <!-- Sidhuvud med mobilmeny och navigation. -->
     <header>
-        <a href="index.html" aria-label="Miixi – startsida">Miixi</a>
+        <a href="index.html" aria-label="Miixi – startsida">
+            <img src="images/miixi-logo.svg"
+                alt="Miixi"
+                width="150"
+                height="33">
+        </a>
 
-        <nav aria-label="Huvudnavigation">
+        <button class="menu-toggle"
+            type="button"
+            aria-controls="site-nav"
+            aria-expanded="false"
+            hidden>
+            <span class="menu-icon" aria-hidden="true">☰</span>
+            <span class="menu-label">Öppna meny</span>
+        </button>
+
+        <nav id="site-nav" aria-label="Huvudnavigation">
             <ul>
-                <li><a href="index.html" aria-current="page">Hem</a></li>
+                <li><a href="index.html">Hem</a></li>
                 <li><a href="kollektion.html">Kollektion</a></li>
                 <li><a href="kontakt.html">Kontakt</a></li>
             </ul>
@@ -24,55 +40,87 @@
     </header>
 
     <main>
-        <!-- Introduktion till webbplatsen. -->
-        <section aria-labelledby="intro-heading">
-            <p>Miixi / Sport &amp; rörelse</p>
-            <h1 id="intro-heading">Hitta din rörelse.</h1>
-            <p>
-                Sportkläder för träningen, laget och en aktiv vardag.
-                Upptäck din nästa favorit hos Miixi.
-            </p>
-            <a href="kollektion.html">Se kollektionen</a>
+        <!-- Introduktion med text och bild. -->
+        <section class="hero" aria-labelledby="intro-heading">
+            <div class="hero-content">
+                <p class="eyebrow">Miixi / Sport &amp; rörelse</p>
+                <h1 id="intro-heading">Hitta din rörelse.</h1>
+                <p>
+                    Sportkläder för träningen, laget och en aktiv vardag.
+                    Upptäck din nästa favorit hos Miixi.
+                </p>
+                <a class="button" href="kollektion.html">
+                    Se kollektionen
+                </a>
+            </div>
+
+            <img class="hero-image"
+                src="images/hero-sport.jpg"
+                alt="Person i en rödvit träningströja"
+                width="680">
         </section>
-        <img src="images/hero-sport.jpg" alt="Person i en rödvit träningströja" width="680">
 
         <!-- Presentation av webbplatsens kategorier. -->
         <section aria-labelledby="categories-heading">
             <h2 id="categories-heading">För varje sätt att röra sig.</h2>
             <p>Utforska sport, vardag och lagkänsla.</p>
 
-            <article>
-                <img src="images/traning.jpg" alt="Fotbollsspelare som justerar sin utrustning" width="420"
-                    loading="lazy">
-                <h3>Träning</h3>
-                <p>För passen där du ger det lilla extra.</p>
-                <a href="kollektion.html#traning">Utforska träning</a>
-            </article>
+            <div class="category-grid">
+                <article>
+                    <img src="images/traning.jpg"
+                        alt="Fotbollsspelare som justerar sin utrustning"
+                        width="420"
+                        loading="lazy">
+                    <h3>Träning</h3>
+                    <p>För passen där du ger det lilla extra.</p>
+                    <a class="button" href="kollektion.html#traning">
+                        Utforska träning
+                    </a>
+                </article>
 
-            <article>
-                <img src="images/vardag.jpg" alt="Kvinna i träningskläder från Casall" width="420" loading="lazy">
-                <h3>Aktiv vardag</h3>
-                <p>Rörelse och komfort genom hela dagen.</p>
-                <a href="kollektion.html#vardag">Utforska aktiv vardag</a>
-            </article>
+                <article>
+                    <img src="images/vardag.jpg"
+                        alt="Kvinna i träningskläder från Casall"
+                        width="420"
+                        loading="lazy">
+                    <h3>Aktiv vardag</h3>
+                    <p>Rörelse och komfort genom hela dagen.</p>
+                    <a class="button" href="kollektion.html#vardag">
+                        Utforska aktiv vardag
+                    </a>
+                </article>
 
-            <article>
-                <img src="images/team.jpg" alt="Person i en limegrön huvtröja" width="420" loading="lazy">
-                <h3>Team &amp; förening</h3>
-                <p>Kläder som samlar laget.</p>
-                <a href="kollektion.html#team">Utforska team och förening</a>
-            </article>
+                <article>
+                    <img src="images/team.jpg"
+                        alt="Person i en limegrön huvtröja"
+                        width="420"
+                        loading="lazy">
+                    <h3>Team &amp; förening</h3>
+                    <p>Kläder som samlar laget.</p>
+                    <a class="button" href="kollektion.html#team">
+                        Utforska team och förening
+                    </a>
+                </article>
+            </div>
         </section>
 
         <!-- Presentation av verksamheten och länk till webbshoppen. -->
-        <section aria-labelledby="about-heading">
-            <h2 id="about-heading">Om Miixi</h2>
-            <p>
-                Hos Miixi hittar du kläder för en aktiv vardag.
-                Här samlar vi inspiration för träning och lag,
-                och hjälper dig vidare till sortimentet på miixi.se.
-            </p>
-            <a href="https://miixi.se/">Handla på miixi.se</a>
+        <section class="about" aria-labelledby="about-heading">
+            <div>
+                <p class="eyebrow">Mer än ett träningspass</p>
+                <h2 id="about-heading">Plats för din rörelse.</h2>
+            </div>
+
+            <div>
+                <p>
+                    Hos Miixi hittar du kläder för en aktiv vardag.
+                    Här samlar vi inspiration för träning och lag,
+                    och hjälper dig vidare till sortimentet på miixi.se.
+                </p>
+                <a class="button" href="https://miixi.se/">
+                    Handla på miixi.se
+                </a>
+            </div>
         </section>
     </main>
 
