@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <!-- Gemensamt sidhuvud och navigation. -->
+    <!-- Sidhuvud med mobilmeny och navigation. -->
     <header>
         <a href="index.html" aria-label="Miixi – startsida">
             <img src="images/miixi-logo.svg"
@@ -22,7 +22,16 @@
                 height="33">
         </a>
 
-        <nav aria-label="Huvudnavigation">
+        <button class="menu-toggle"
+            type="button"
+            aria-controls="site-nav"
+            aria-expanded="false"
+            hidden>
+            <span class="menu-icon" aria-hidden="true">☰</span>
+            <span class="menu-label">Öppna meny</span>
+        </button>
+
+        <nav id="site-nav" aria-label="Huvudnavigation">
             <ul>
                 <li><a href="index.html">Hem</a></li>
                 <li><a href="kollektion.html">Kollektion</a></li>
