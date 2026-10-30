@@ -27,9 +27,30 @@ a:focus-visible {
     outline-offset: 4px;
 }
 
+/* Rubriker. */
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    overflow-wrap: break-word;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
 /* Sidhuvud och navigation. */
 header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
@@ -55,51 +76,160 @@ nav a[aria-current="page"] {
     text-decoration: underline;
 }
 
-/* Innehåll och rubriker. */
-main section {
+/* Gemensamma avstånd för huvudsektionerna. */
+main > section {
     padding: 40px 24px;
 }
 
-h1,
-h2,
-h3 {
-    line-height: 1.2;
+.eyebrow {
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
-h1 {
-    font-size: 2.5rem;
+/* Länkar som utformas som knappar. */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    color: #ffffff;
+    background-color: #193443;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-h2 {
-    font-size: 2rem;
+.button:hover {
+    background-color: #2c5060;
 }
 
-article {
-    margin-top: 32px;
-}
-
-/* Introduktion och presentation av verksamheten. */
-section[aria-labelledby="intro-heading"] {
+/* Introduktion på startsidan. */
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 32px;
     background-color: #f1f4f3;
 }
 
-section[aria-labelledby="about-heading"],
-footer {
+.hero-content h1 {
+    margin: 16px 0;
+}
+
+.hero-content .button {
+    margin-top: 16px;
+}
+
+.hero-image {
+    width: 100%;
+}
+
+/* Kategorikort på startsidan. */
+.category-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    margin-top: 32px;
+}
+
+.category-grid article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.category-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.category-grid h3 {
+    margin: 20px 0 8px;
+}
+
+.category-grid p {
+    margin: 0 0 24px;
+}
+
+.category-grid .button {
+    margin-top: auto;
+}
+
+/* Presentation av verksamheten. */
+.about {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
     color: #ffffff;
     background-color: #193443;
 }
 
-footer {
-    padding: 32px 24px;
+.about h2 {
+    margin-top: 12px;
 }
 
-/* Mer utrymme på större skärmar. */
+.about .button {
+    margin-top: 16px;
+    color: #193443;
+    background-color: #dbf47b;
+}
+
+.about .button:hover {
+    background-color: #c9e568;
+}
+
+/* Sidfot och fokusmarkering på mörk bakgrund. */
+footer {
+    padding: 32px 24px;
+    color: #ffffff;
+    background-color: #193443;
+}
+
+.about a:focus-visible,
+footer a:focus-visible {
+    outline-color: #dbf47b;
+}
+
+/* Introduktion till kollektionssidan. */
+.page-intro {
+    background-color: #f1f4f3;
+}
+
+.category-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 0;
+    list-style: none;
+}
+
+/* Kategorier på kollektionssidan. */
+.collection-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 32px;
+    scroll-margin-top: 24px;
+}
+
+.collection-section img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.collection-section:nth-of-type(odd) {
+    background-color: #f1f4f3;
+}
+
+/* Större avstånd på surfplattor och desktop. */
 @media (min-width: 768px) {
     header {
         padding: 32px 64px;
     }
 
-    main section {
+    main > section {
         padding: 64px;
     }
 
@@ -110,4 +240,150 @@ footer {
     footer {
         padding: 40px 64px;
     }
+}
+
+/* Flera kolumner på desktop. */
+@media (min-width: 900px) {
+    .hero,
+    .about,
+    .collection-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 48px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Kontaktformulär. */
+#contact-form {
+    max-width: 640px;
+    margin-top: 32px;
+}
+
+.form-field {
+    margin-bottom: 24px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-field input,
+.form-field textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #56676d;
+    border-radius: 4px;
+    font: inherit;
+    color: #193443;
+    background-color: #ffffff;
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
+.form-field input:focus-visible,
+.form-field textarea:focus-visible {
+    outline: 3px solid #193443;
+    outline-offset: 3px;
+}
+
+/* Fel visas både med text och en markerad kant. */
+.form-field [aria-invalid="true"] {
+    border: 2px solid #a51d26;
+}
+
+.field-error {
+    margin: 8px 0 0;
+    color: #a51d26;
+    font-weight: bold;
+}
+
+.field-error:empty {
+    display: none;
+}
+
+button.button {
+    border: none;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.button:focus-visible {
+    outline: 3px solid #193443;
+    outline-offset: 4px;
+}
+
+#form-status {
+    margin-top: 24px;
+    font-weight: bold;
+}
+
+/* Mobilmenyn aktiveras med JavaScript. */
+.menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid #193443;
+    border-radius: 4px;
+    color: #193443;
+    background-color: #ffffff;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.menu-toggle:focus-visible {
+    outline: 3px solid #193443;
+    outline-offset: 4px;
+}
+
+/* Dolda kontroller och länkar ska inte visas eller kunna få fokus. */
+.menu-toggle[hidden],
+#site-nav[hidden] {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .menu-toggle:not([hidden]) {
+        display: inline-flex;
+    }
+
+    #site-nav {
+        flex-basis: 100%;
+    }
+
+    #site-nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #site-nav a {
+        display: block;
+        padding: 12px 0;
+    }
+}
+
+/* Verksamhetens kontaktuppgifter. */
+.contact-details {
+    margin-top: 24px;
+    font-style: normal;
+}
+
+.contact-details p {
+    margin: 8px 0;
 }
