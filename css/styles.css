@@ -387,3 +387,24 @@ button.button:focus-visible {
 .contact-details p {
     margin: 8px 0;
 }
+
+/* Kompakt sidhuvud på mobil. */
+@media (max-width: 767px) {
+    header {
+        gap: 12px;
+        padding: 20px 16px;
+    }
+
+    header > a {
+        flex-shrink: 0;
+    }
+
+    header > a img {
+        width: 110px;
+    }
+
+    .menu-toggle {
+        padding: 8px;
+        font-size: 0.875rem;
+    }
+}
