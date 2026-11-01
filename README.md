@@ -75,6 +75,7 @@ Webbplatsen använder bland annat:
 
 Webbplatsen planerades med ett wireframe för desktop, ett wireframe
 för mobil och en mockup i Figma.
+https://www.figma.com/design/83wSos8ZMeQU5CC4GfgbEn/Miixi-%E2%80%93-Projekt-DT224G?node-id=0-1&p=f
 
 Exporterade designunderlag finns i mappen design.
 
